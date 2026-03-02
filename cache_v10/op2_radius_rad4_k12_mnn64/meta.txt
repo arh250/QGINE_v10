@@ -1,0 +1,6 @@
+format=edge_index+edge_dist+triplets_v1
+graph_type=radius
+radius=4.0
+knn_k=12
+max_num_neighbors=64
+num_graphs=130831

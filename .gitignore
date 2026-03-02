@@ -1,0 +1,35 @@
+# --- environments / installers ---
+miniconda3/
+Miniconda3-latest-*.sh*
+.venv/
+env/
+*.conda
+
+# --- data / caches / outputs ---
+qm9_data/
+data/
+op2_cache*/
+runs*/
+runs_*/
+runs_cached/
+runs_qgine*/
+logs/
+logs*/
+logs_*.txt
+nohup.out
+
+# --- model artifacts ---
+*.pt
+*.pth
+*.ckpt
+*.tar.gz
+*.zip
+
+# --- python junk ---
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# --- editor / OS ---
+.DS_Store
+.vscode/
