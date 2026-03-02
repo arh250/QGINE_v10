@@ -1,0 +1,183 @@
+nohup: ignoring input
+[2026-03-02 00:16:05] ================================================================================
+[2026-03-02 00:16:05]   QGINE v10 — STARTUP
+[2026-03-02 00:16:05] ================================================================================
+[2026-03-02 00:16:05]   exp_name   : qgine_v10_full_20260302_001514
+[2026-03-02 00:16:05]   target_idx : 0
+[2026-03-02 00:16:05]   split_seed : 0  train_seed: 0
+[2026-03-02 00:16:05]   Device     : cuda
+[2026-03-02 00:16:05]   GPU        : NVIDIA GeForce RTX 5090
+[2026-03-02 00:16:05]   VRAM       : 31.4 GB
+[2026-03-02 00:16:05]   PyTorch    : 2.8.0+cu128
+[2026-03-02 00:16:05]   PennyLane  : 0.44.0
+[2026-03-02 00:16:05]   Python     : 3.11.14
+[2026-03-02 00:16:05] ================================================================================
+[Cache] Loaded edges+triplets from: /workspace/QGINE_run/op2_cache_v9/op2_radius_rad4_k12_mnn64
+[2026-03-02 00:16:55]   [Cache]  dir=/workspace/QGINE_run/op2_cache_v9/op2_radius_rad4_k12_mnn64
+[2026-03-02 00:16:55]   [Split]  train/val/test = 104664/13083/13084
+[2026-03-02 00:16:55]   [Norm]   y_mean=2.671530 y_std=1.504882
+[2026-03-02 00:16:55]   [3Body]  use_3body=True angle_rbf_bins=48
+[2026-03-02 00:16:55]   [Quantum] p=4 Lq=2 measure=z+zz diff=backprop device=default.qubit
+[2026-03-02 00:16:55]   [Stages] base=200 quantum=60 finetune=30
+[2026-03-02 00:16:55]   [Freeze] base_during_quantum=True last_block_finetune=True
+
+================================================================================
+RUN: hidden=256 layers=4 target=0
+[2026-03-02 00:16:55]   batch_size_quantum=512
+[2026-03-02 00:16:58]   Mean baseline MAE (val): 1.177110
+[2026-03-02 00:16:58] ================================================================================
+[2026-03-02 00:16:58]   MODEL SUMMARY: t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train0
+[2026-03-02 00:16:58]   Architecture   : hidden=256 layers=4 readout=add+mean
+[2026-03-02 00:16:58]   3-body         : use_3body=True angle_rbf_bins=48
+[2026-03-02 00:16:58]   Bond GINE      : layers=2 mode=interleave use_dist=True
+[2026-03-02 00:16:58]   Quantum head   : p=4 Lq=2 measure=z+zz diff=backprop
+[2026-03-02 00:16:58]   Total params   : 4,802,175
+[2026-03-02 00:16:58]   Base params    : 4,796,673
+[2026-03-02 00:16:58]   Quantum params : 377
+[2026-03-02 00:16:58]   Input node dim : 11  |  Bond edge dim: 4
+[2026-03-02 00:16:58]   Device         : cuda  |  AMP: True (bf16)
+[2026-03-02 00:16:58]   GPU mem: 0.02GB alloc / 0.09GB reserved
+[2026-03-02 00:16:58] ================================================================================
+[2026-03-02 00:16:58]   [base] SKIPPING base training — loading checkpoint: /workspace/QGINE_run/move_emerson/runs_qgine_v9/target0/qgine_v10_full_20260302_004949/split0/train0/best_t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train0.pt
+[2026-03-02 00:16:58]   [base] Loaded. best_val=0.131415 | q_scale=0.0000
+[2026-03-02 00:16:58] ================================================================================
+[2026-03-02 00:16:58]   STAGE TRANSITION: base → quantum
+[2026-03-02 00:16:58] ================================================================================
+[2026-03-02 00:16:58]   freeze_base_during_quantum=True
+[2026-03-02 00:16:59] ================================================================================
+[2026-03-02 00:16:59]   STAGE: QUANTUM
+[2026-03-02 00:16:59]   Trainable params : 5,502
+[2026-03-02 00:16:59]   Epochs / Patience: 60 / 20
+[2026-03-02 00:16:59]   LR / WD          : 3.00e-04 / 1.00e-05
+[2026-03-02 00:16:59]   Scheduler        : cosine (warmup=10)
+[2026-03-02 00:16:59]   Loss             : l1
+[2026-03-02 00:16:59]   EMA              : True (decay=0.9999)
+[2026-03-02 00:16:59]   GPU mem: 0.04GB alloc / 0.11GB reserved
+[2026-03-02 00:16:59] ================================================================================
+[2026-03-02 00:17:28]   [quantum] ep=0001/60 | lr=5.70e-05 | train=0.08094 | val=0.068714 | best=0.068714@1 | q_scale=-0.00462 | gnorm=0.008 | patience=0/20 | ep=28.7s ETA=28m12s
+[2026-03-02 00:17:54]   [quantum] ep=0002/60 | lr=8.40e-05 | train=0.08133 | val=0.068734 | best=0.068714@1 | q_scale=-0.01119 | gnorm=0.018 | patience=1/20 | ep=25.6s ETA=26m12s
+[2026-03-02 00:18:19]   [quantum] ep=0003/60 | lr=1.11e-04 | train=0.08128 | val=0.068669 (↓0.000045) | best=0.068669@3 | q_scale=-0.01662 | gnorm=0.012 | patience=0/20 | ep=25.3s ETA=25m11s
+[2026-03-02 00:18:45]   [quantum] ep=0004/60 | lr=1.38e-04 | train=0.08139 | val=0.068658 (↓0.000011) | best=0.068658@4 | q_scale=-0.01728 | gnorm=0.025 | patience=0/20 | ep=25.6s ETA=24m31s
+[2026-03-02 00:19:09]   [quantum] ep=0005/60 | lr=1.65e-04 | train=0.08098 | val=0.068607 (↓0.000051) | best=0.068607@5 | q_scale=-0.01680 | gnorm=0.006 | patience=0/20 | ep=24.4s ETA=23m44s
+[2026-03-02 00:19:33]   [quantum] ep=0006/60 | lr=1.92e-04 | train=0.08141 | val=0.068559 (↓0.000048) | best=0.068559@6 | q_scale=-0.01776 | gnorm=0.003 | patience=0/20 | ep=24.0s ETA=23m01s
+[2026-03-02 00:19:57]   [quantum] ep=0007/60 | lr=2.19e-04 | train=0.08118 | val=0.068534 (↓0.000025) | best=0.068534@7 | q_scale=-0.01597 | gnorm=0.026 | patience=0/20 | ep=23.5s ETA=22m19s
+[2026-03-02 00:20:22]   [quantum] ep=0008/60 | lr=2.46e-04 | train=0.08076 | val=0.068496 (↓0.000038) | best=0.068496@8 | q_scale=-0.01784 | gnorm=0.020 | patience=0/20 | ep=25.0s ETA=21m52s
+[2026-03-02 00:20:48]   [quantum] ep=0009/60 | lr=2.73e-04 | train=0.08113 | val=0.068445 (↓0.000051) | best=0.068445@9 | q_scale=-0.01525 | gnorm=0.022 | patience=0/20 | ep=25.4s ETA=21m28s
+/workspace/miniconda3/envs/qgine/lib/python3.11/site-packages/torch/optim/lr_scheduler.py:209: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+[2026-03-02 00:21:11]   [quantum] ep=0010/60 | lr=3.00e-04 | train=0.08097 | val=0.068402 (↓0.000043) | best=0.068402@10 | q_scale=-0.01616 | gnorm=0.009 | patience=0/20 | ep=23.5s ETA=20m54s
+[2026-03-02 00:21:35]   [quantum] ep=0011/60 | lr=3.00e-04 | train=0.08133 | val=0.068369 (↓0.000034) | best=0.068369@11 | q_scale=-0.01788 | gnorm=0.042 | patience=0/20 | ep=23.5s ETA=20m03s
+[2026-03-02 00:21:58]   [quantum] ep=0012/60 | lr=2.99e-04 | train=0.08114 | val=0.068317 (↓0.000052) | best=0.068317@12 | q_scale=-0.01775 | gnorm=0.003 | patience=0/20 | ep=23.0s ETA=19m27s
+[2026-03-02 00:22:48]   [quantum] ep=0014/60 | lr=2.95e-04 | train=0.08115 | val=0.068220 (↓0.000097) | best=0.068220@14 | q_scale=-0.01691 | gnorm=0.017 | patience=0/20 | ep=26.8s ETA=18m35s
+[2026-03-02 00:23:14]   [quantum] ep=0015/60 | lr=2.93e-04 | train=0.08078 | val=0.068210 (↓0.000010) | best=0.068210@15 | q_scale=-0.01831 | gnorm=0.003 | patience=0/20 | ep=25.3s ETA=18m15s
+[2026-03-02 00:23:38]   [quantum] ep=0016/60 | lr=2.89e-04 | train=0.08155 | val=0.068155 (↓0.000055) | best=0.068155@16 | q_scale=-0.01700 | gnorm=0.006 | patience=0/20 | ep=24.1s ETA=17m51s
+[2026-03-02 00:24:04]   [quantum] ep=0017/60 | lr=2.86e-04 | train=0.08139 | val=0.068108 (↓0.000047) | best=0.068108@17 | q_scale=-0.01845 | gnorm=0.036 | patience=0/20 | ep=25.5s ETA=17m35s
+[2026-03-02 00:24:28]   [quantum] ep=0018/60 | lr=2.81e-04 | train=0.08096 | val=0.068071 (↓0.000037) | best=0.068071@18 | q_scale=-0.01917 | gnorm=0.014 | patience=0/20 | ep=24.5s ETA=17m09s
+[2026-03-02 00:24:54]   [quantum] ep=0019/60 | lr=2.77e-04 | train=0.08109 | val=0.068051 (↓0.000019) | best=0.068051@19 | q_scale=-0.02069 | gnorm=0.003 | patience=0/20 | ep=25.8s ETA=16m46s
+[2026-03-02 00:25:22]   [quantum] ep=0020/60 | lr=2.71e-04 | train=0.08126 | val=0.067956 (↓0.000096) | best=0.067956@20 | q_scale=-0.02570 | gnorm=0.007 | patience=0/20 | ep=27.2s ETA=16m36s
+[2026-03-02 00:25:46]   [quantum] ep=0021/60 | lr=2.66e-04 | train=0.08152 | val=0.067891 (↓0.000064) | best=0.067891@21 | q_scale=-0.02956 | gnorm=0.015 | patience=0/20 | ep=24.6s ETA=16m15s
+[2026-03-02 00:26:12]   [quantum] ep=0022/60 | lr=2.59e-04 | train=0.08096 | val=0.067822 (↓0.000069) | best=0.067822@22 | q_scale=-0.03183 | gnorm=0.009 | patience=0/20 | ep=25.7s ETA=16m00s
+[2026-03-02 00:26:38]   [quantum] ep=0023/60 | lr=2.53e-04 | train=0.08071 | val=0.067747 (↓0.000076) | best=0.067747@23 | q_scale=-0.03450 | gnorm=0.022 | patience=0/20 | ep=25.9s ETA=15m45s
+[2026-03-02 00:27:04]   [quantum] ep=0024/60 | lr=2.46e-04 | train=0.08109 | val=0.067654 (↓0.000092) | best=0.067654@24 | q_scale=-0.03735 | gnorm=0.005 | patience=0/20 | ep=25.4s ETA=15m14s
+[2026-03-02 00:27:32]   [quantum] ep=0025/60 | lr=2.38e-04 | train=0.08121 | val=0.067535 (↓0.000119) | best=0.067535@25 | q_scale=-0.04063 | gnorm=0.026 | patience=0/20 | ep=28.2s ETA=14m59s
+[2026-03-02 00:27:57]   [quantum] ep=0026/60 | lr=2.30e-04 | train=0.08118 | val=0.067440 (↓0.000096) | best=0.067440@26 | q_scale=-0.04237 | gnorm=0.010 | patience=0/20 | ep=25.3s ETA=14m37s
+[2026-03-02 00:28:22]   [quantum] ep=0027/60 | lr=2.22e-04 | train=0.08110 | val=0.067337 (↓0.000102) | best=0.067337@27 | q_scale=-0.04160 | gnorm=0.014 | patience=0/20 | ep=25.1s ETA=14m10s
+[2026-03-02 00:28:47]   [quantum] ep=0028/60 | lr=2.14e-04 | train=0.08107 | val=0.067218 (↓0.000119) | best=0.067218@28 | q_scale=-0.04142 | gnorm=0.021 | patience=0/20 | ep=24.5s ETA=13m44s
+[2026-03-02 00:29:14]   [quantum] ep=0029/60 | lr=2.05e-04 | train=0.08113 | val=0.067138 (↓0.000080) | best=0.067138@29 | q_scale=-0.04252 | gnorm=0.014 | patience=0/20 | ep=26.5s ETA=13m21s
+[2026-03-02 00:29:42]   [quantum] ep=0030/60 | lr=1.96e-04 | train=0.08105 | val=0.067002 (↓0.000135) | best=0.067002@30 | q_scale=-0.04222 | gnorm=0.004 | patience=0/20 | ep=28.2s ETA=12m58s
+[2026-03-02 00:30:12]   [quantum] ep=0031/60 | lr=1.87e-04 | train=0.08078 | val=0.066869 (↓0.000134) | best=0.066869@31 | q_scale=-0.04230 | gnorm=0.012 | patience=0/20 | ep=29.4s ETA=12m46s
+[2026-03-02 00:30:39]   [quantum] ep=0032/60 | lr=1.78e-04 | train=0.08113 | val=0.066831 (↓0.000038) | best=0.066831@32 | q_scale=-0.03923 | gnorm=0.012 | patience=0/20 | ep=27.3s ETA=12m24s
+[2026-03-02 00:31:06]   [quantum] ep=0033/60 | lr=1.69e-04 | train=0.08137 | val=0.066673 (↓0.000157) | best=0.066673@33 | q_scale=-0.04109 | gnorm=0.034 | patience=0/20 | ep=26.6s ETA=11m59s
+[2026-03-02 00:31:32]   [quantum] ep=0034/60 | lr=1.59e-04 | train=0.08096 | val=0.066595 (↓0.000078) | best=0.066595@34 | q_scale=-0.03897 | gnorm=0.025 | patience=0/20 | ep=26.6s ETA=11m35s
+[2026-03-02 00:31:59]   [quantum] ep=0035/60 | lr=1.50e-04 | train=0.08123 | val=0.066512 (↓0.000083) | best=0.066512@35 | q_scale=-0.03985 | gnorm=0.006 | patience=0/20 | ep=26.4s ETA=11m04s
+[2026-03-02 00:32:29]   [quantum] ep=0036/60 | lr=1.41e-04 | train=0.08074 | val=0.066411 (↓0.000101) | best=0.066411@36 | q_scale=-0.04110 | gnorm=0.020 | patience=0/20 | ep=29.6s ETA=10m48s
+[2026-03-02 00:32:54]   [quantum] ep=0037/60 | lr=1.31e-04 | train=0.08088 | val=0.066314 (↓0.000097) | best=0.066314@37 | q_scale=-0.04238 | gnorm=0.019 | patience=0/20 | ep=25.3s ETA=10m21s
+[2026-03-02 00:33:19]   [quantum] ep=0038/60 | lr=1.22e-04 | train=0.08095 | val=0.066237 (↓0.000077) | best=0.066237@38 | q_scale=-0.04160 | gnorm=0.004 | patience=0/20 | ep=24.7s ETA=9m55s
+[2026-03-02 00:33:43]   [quantum] ep=0039/60 | lr=1.13e-04 | train=0.08094 | val=0.066118 (↓0.000119) | best=0.066118@39 | q_scale=-0.03730 | gnorm=0.006 | patience=0/20 | ep=24.4s ETA=9m23s
+[2026-03-02 00:34:08]   [quantum] ep=0040/60 | lr=1.04e-04 | train=0.08067 | val=0.066020 (↓0.000098) | best=0.066020@40 | q_scale=-0.03979 | gnorm=0.014 | patience=0/20 | ep=24.8s ETA=8m50s
+[2026-03-02 00:34:34]   [quantum] ep=0041/60 | lr=9.48e-05 | train=0.08132 | val=0.065966 (↓0.000054) | best=0.065966@41 | q_scale=-0.04021 | gnorm=0.007 | patience=0/20 | ep=25.3s ETA=8m15s
+[2026-03-02 00:35:00]   [quantum] ep=0042/60 | lr=8.61e-05 | train=0.08083 | val=0.065843 (↓0.000123) | best=0.065843@42 | q_scale=-0.04042 | gnorm=0.008 | patience=0/20 | ep=26.4s ETA=7m48s
+[2026-03-02 00:35:25]   [quantum] ep=0043/60 | lr=7.77e-05 | train=0.08103 | val=0.065823 (↓0.000020) | best=0.065823@43 | q_scale=-0.04103 | gnorm=0.012 | patience=0/20 | ep=24.6s ETA=7m18s
+[2026-03-02 00:35:51]   [quantum] ep=0044/60 | lr=6.96e-05 | train=0.08183 | val=0.065726 (↓0.000097) | best=0.065726@44 | q_scale=-0.04147 | gnorm=0.029 | patience=0/20 | ep=25.9s ETA=6m51s
+[2026-03-02 00:36:17]   [quantum] ep=0045/60 | lr=6.18e-05 | train=0.08118 | val=0.065638 (↓0.000088) | best=0.065638@45 | q_scale=-0.04099 | gnorm=0.001 | patience=0/20 | ep=25.5s ETA=6m24s
+[2026-03-02 00:36:44]   [quantum] ep=0046/60 | lr=5.44e-05 | train=0.08111 | val=0.065583 (↓0.000055) | best=0.065583@46 | q_scale=-0.04174 | gnorm=0.009 | patience=0/20 | ep=26.8s ETA=5m55s
+[2026-03-02 00:37:11]   [quantum] ep=0047/60 | lr=4.73e-05 | train=0.08118 | val=0.065452 (↓0.000131) | best=0.065452@47 | q_scale=-0.04162 | gnorm=0.007 | patience=0/20 | ep=27.8s ETA=5m33s
+[2026-03-02 00:37:35]   [quantum] ep=0048/60 | lr=4.07e-05 | train=0.08111 | val=0.065407 (↓0.000046) | best=0.065407@48 | q_scale=-0.04208 | gnorm=0.018 | patience=0/20 | ep=23.7s ETA=5m06s
+[2026-03-02 00:37:59]   [quantum] ep=0049/60 | lr=3.44e-05 | train=0.08142 | val=0.065309 (↓0.000098) | best=0.065309@49 | q_scale=-0.04160 | gnorm=0.008 | patience=0/20 | ep=23.7s ETA=4m39s
+[2026-03-02 00:38:24]   [quantum] ep=0050/60 | lr=2.86e-05 | train=0.08123 | val=0.065236 (↓0.000073) | best=0.065236@50 | q_scale=-0.04131 | gnorm=0.009 | patience=0/20 | ep=24.0s ETA=4m13s
+[2026-03-02 00:38:49]   [quantum] ep=0051/60 | lr=2.34e-05 | train=0.08118 | val=0.065163 (↓0.000073) | best=0.065163@51 | q_scale=-0.04082 | gnorm=0.010 | patience=0/20 | ep=25.4s ETA=3m48s
+[2026-03-02 00:39:15]   [quantum] ep=0052/60 | lr=1.86e-05 | train=0.08141 | val=0.065126 (↓0.000037) | best=0.065126@52 | q_scale=-0.04087 | gnorm=0.012 | patience=0/20 | ep=26.2s ETA=3m22s
+[2026-03-02 00:39:42]   [quantum] ep=0053/60 | lr=1.43e-05 | train=0.08128 | val=0.065014 (↓0.000112) | best=0.065014@53 | q_scale=-0.04061 | gnorm=0.005 | patience=0/20 | ep=27.0s ETA=2m59s
+[2026-03-02 00:40:08]   [quantum] ep=0054/60 | lr=1.05e-05 | train=0.08120 | val=0.065012 (↓0.000002) | best=0.065012@54 | q_scale=-0.04045 | gnorm=0.005 | patience=0/20 | ep=25.5s ETA=2m33s
+[2026-03-02 00:40:33]   [quantum] ep=0055/60 | lr=7.34e-06 | train=0.08121 | val=0.064882 (↓0.000129) | best=0.064882@55 | q_scale=-0.04029 | gnorm=0.002 | patience=0/20 | ep=25.1s ETA=2m07s
+[2026-03-02 00:40:57]   [quantum] ep=0056/60 | lr=4.71e-06 | train=0.08103 | val=0.064825 (↓0.000057) | best=0.064825@56 | q_scale=-0.04028 | gnorm=0.010 | patience=0/20 | ep=23.8s ETA=1m40s
+[2026-03-02 00:41:25]   [quantum] ep=0057/60 | lr=2.66e-06 | train=0.08110 | val=0.064782 (↓0.000043) | best=0.064782@57 | q_scale=-0.04032 | gnorm=0.014 | patience=0/20 | ep=27.5s ETA=1m15s
+[2026-03-02 00:41:51]   [quantum] ep=0058/60 | lr=1.18e-06 | train=0.08087 | val=0.064706 (↓0.000076) | best=0.064706@58 | q_scale=-0.04034 | gnorm=0.004 | patience=0/20 | ep=26.7s ETA=50s
+[2026-03-02 00:42:18]   [quantum] ep=0059/60 | lr=2.96e-07 | train=0.08105 | val=0.064675 (↓0.000031) | best=0.064675@59 | q_scale=-0.04038 | gnorm=0.014 | patience=0/20 | ep=26.5s ETA=25s
+[2026-03-02 00:42:43]   [quantum] ep=0060/60 | lr=0.00e+00 | train=0.08077 | val=0.064581 (↓0.000094) | best=0.064581@60 | q_scale=-0.04038 | gnorm=0.009 | patience=0/20 | ep=24.5s ETA=0s
+[2026-03-02 00:42:43] --------------------------------------------------------------------------------
+[2026-03-02 00:42:43]   [quantum] COMPLETE in 25m44s
+[2026-03-02 00:42:43]   [quantum] Best val MAE : 0.064581 @ epoch 60
+[2026-03-02 00:42:43]   [quantum] Final q_scale: -0.040379
+[2026-03-02 00:42:43]   [quantum] Avg epoch time: 25.6s
+[2026-03-02 00:42:43]   GPU mem: 0.05GB alloc / 20.50GB reserved
+[2026-03-02 00:42:43] --------------------------------------------------------------------------------
+[2026-03-02 00:42:43]   [quantum] best_val=0.064581 | improvement over base: 0.066834 (50.86%)
+[2026-03-02 00:42:43]   [quantum] q_scale=-0.040379
+[2026-03-02 00:42:43] ================================================================================
+[2026-03-02 00:42:43]   STAGE TRANSITION: quantum → finetune
+[2026-03-02 00:42:43] ================================================================================
+[2026-03-02 00:42:43]   unfreeze_last_block_finetune=True
+[2026-03-02 00:42:44] ================================================================================
+[2026-03-02 00:42:44]   STAGE: FINETUNE
+[2026-03-02 00:42:44]   Trainable params : 1,452,927
+[2026-03-02 00:42:44]   Epochs / Patience: 30 / 15
+[2026-03-02 00:42:44]   LR / WD          : 5.00e-05 / 1.00e-05
+[2026-03-02 00:42:44]   Scheduler        : cosine (warmup=10)
+[2026-03-02 00:42:44]   Loss             : l1
+[2026-03-02 00:42:44]   EMA              : True (decay=0.9999)
+[2026-03-02 00:42:44]   GPU mem: 0.05GB alloc / 20.50GB reserved
+[2026-03-02 00:42:44] ================================================================================
+[2026-03-02 00:43:28]   [finetune] ep=0001/30 | lr=9.50e-06 | train=0.08089 | val=0.064574 | best=0.064574@1 | q_scale=-0.04033 | gnorm=2.017 | patience=0/15 | ep=43.2s ETA=20m53s
+[2026-03-02 00:43:58]   [finetune] ep=0002/30 | lr=1.40e-05 | train=0.08047 | val=0.064361 (↓0.000213) | best=0.064361@2 | q_scale=-0.04039 | gnorm=4.013 | patience=0/15 | ep=29.9s ETA=17m03s
+[2026-03-02 00:44:29]   [finetune] ep=0003/30 | lr=1.85e-05 | train=0.08012 | val=0.064309 (↓0.000052) | best=0.064309@3 | q_scale=-0.04072 | gnorm=3.768 | patience=0/15 | ep=30.2s ETA=15m30s
+[2026-03-02 00:44:59]   [finetune] ep=0004/30 | lr=2.30e-05 | train=0.08018 | val=0.063884 (↓0.000425) | best=0.063884@4 | q_scale=-0.04106 | gnorm=1.443 | patience=0/15 | ep=30.4s ETA=14m29s
+[2026-03-02 00:45:29]   [finetune] ep=0005/30 | lr=2.75e-05 | train=0.08091 | val=0.063813 (↓0.000070) | best=0.063813@5 | q_scale=-0.04164 | gnorm=2.609 | patience=0/15 | ep=29.6s ETA=13m36s
+[2026-03-02 00:45:57]   [finetune] ep=0006/30 | lr=3.20e-05 | train=0.08025 | val=0.063618 (↓0.000195) | best=0.063618@6 | q_scale=-0.04252 | gnorm=6.018 | patience=0/15 | ep=28.2s ETA=12m46s
+[2026-03-02 00:46:26]   [finetune] ep=0007/30 | lr=3.65e-05 | train=0.08076 | val=0.063292 (↓0.000327) | best=0.063292@7 | q_scale=-0.04318 | gnorm=1.309 | patience=0/15 | ep=28.6s ETA=12m03s
+[2026-03-02 00:46:55]   [finetune] ep=0008/30 | lr=4.10e-05 | train=0.08005 | val=0.063158 (↓0.000133) | best=0.063158@8 | q_scale=-0.04431 | gnorm=2.273 | patience=0/15 | ep=29.6s ETA=11m26s
+[2026-03-02 00:47:27]   [finetune] ep=0009/30 | lr=4.55e-05 | train=0.08024 | val=0.063426 | best=0.063158@8 | q_scale=-0.04580 | gnorm=1.878 | patience=1/15 | ep=31.3s ETA=10m55s
+[2026-03-02 00:47:57]   [finetune] ep=0010/30 | lr=5.00e-05 | train=0.07975 | val=0.063394 | best=0.063158@8 | q_scale=-0.04720 | gnorm=3.227 | patience=2/15 | ep=29.5s ETA=10m20s
+[2026-03-02 00:50:21]   [finetune] ep=0015/30 | lr=4.27e-05 | train=0.07930 | val=0.064874 | best=0.063158@8 | q_scale=-0.05617 | gnorm=1.461 | patience=7/15 | ep=29.4s ETA=7m16s
+[2026-03-02 00:52:48]   [finetune] ep=0020/30 | lr=2.50e-05 | train=0.07777 | val=0.067010 | best=0.063158@8 | q_scale=-0.06054 | gnorm=3.319 | patience=12/15 | ep=30.4s ETA=4m50s
+[2026-03-02 00:54:12]   [finetune] Early stop @ ep=23
+[2026-03-02 00:54:12]   [finetune] Best val=0.063158 @ epoch 8
+[2026-03-02 00:54:12] --------------------------------------------------------------------------------
+[2026-03-02 00:54:12]   [finetune] COMPLETE in 11m27s
+[2026-03-02 00:54:12]   [finetune] Best val MAE : 0.063158 @ epoch 8
+[2026-03-02 00:54:12]   [finetune] Final q_scale: -0.062188
+[2026-03-02 00:54:12]   [finetune] Avg epoch time: 29.8s
+[2026-03-02 00:54:12]   GPU mem: 0.07GB alloc / 20.51GB reserved
+[2026-03-02 00:54:12] --------------------------------------------------------------------------------
+[2026-03-02 00:54:12]   [finetune] best_val=0.063158 | improvement over quantum: 0.001423
+[2026-03-02 00:54:12]   [finetune] q_scale=-0.062188
+[2026-03-02 00:54:22] ================================================================================
+[2026-03-02 00:54:22]   FINAL RESULTS
+[2026-03-02 00:54:22] ================================================================================
+[2026-03-02 00:54:22]   Tag      : t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train0
+[2026-03-02 00:54:22]   Val  MAE : 0.063491
+[2026-03-02 00:54:22]   Test MAE : 0.064190
+[2026-03-02 00:54:22]   q_scale  : -0.044315
+[2026-03-02 00:54:22]   Best epoch (overall): 8
+[2026-03-02 00:54:22]   Stage MAEs — base: 0.131415 | quantum: 0.064581 | finetune: 0.063158
+[2026-03-02 00:54:22]   Total quantum+finetune gain: 0.067924 (51.69% over base)
+[2026-03-02 00:54:22]   Ckpt : runs_qgine_v9/target0/qgine_v10_full_20260302_001514/split0/train0/best_t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train0.pt
+[2026-03-02 00:54:22]   Log  : runs_qgine_v9/target0/qgine_v10_full_20260302_001514/split0/train0/log_t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train0.csv
+[2026-03-02 00:54:22]   Qdiag: runs_qgine_v9/target0/qgine_v10_full_20260302_001514/split0/train0/qdiag_t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train0.csv
+[2026-03-02 00:54:22] ================================================================================
+[2026-03-02 00:54:25] ================================================================================
+[2026-03-02 00:54:25]   ALL RUNS COMPLETE
+[2026-03-02 00:54:25] ================================================================================
+[2026-03-02 00:54:25]   BEST: t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train0
+[2026-03-02 00:54:25]   val=0.063491 | test=0.064190 | q_scale=-0.044315
+[2026-03-02 00:54:25]   summary: runs_qgine_v9/target0/qgine_v10_full_20260302_001514/split0/train0/summary.csv

@@ -1,0 +1,56 @@
+nohup: ignoring input
+[2026-03-02 17:24:01] ================================================================================
+[2026-03-02 17:24:01]   QGINE v10 — STARTUP
+[2026-03-02 17:24:01] ================================================================================
+[2026-03-02 17:24:01]   exp_name   : qgine_v10_full_seed120260302_172333
+[2026-03-02 17:24:01]   target_idx : 0
+[2026-03-02 17:24:01]   split_seed : 0  train_seed: 0
+[2026-03-02 17:24:01]   Device     : cuda
+[2026-03-02 17:24:01]   GPU        : NVIDIA GeForce RTX 5090
+[2026-03-02 17:24:01]   VRAM       : 31.4 GB
+[2026-03-02 17:24:01]   PyTorch    : 2.8.0+cu128
+[2026-03-02 17:24:01]   PennyLane  : 0.44.0
+[2026-03-02 17:24:01]   Python     : 3.11.14
+[2026-03-02 17:24:01] ================================================================================
+[Cache] Loaded edges+triplets from: /workspace/QGINE_run/op2_cache_v9/op2_radius_rad4_k12_mnn64
+[2026-03-02 17:24:36]   [Cache]  dir=/workspace/QGINE_run/op2_cache_v9/op2_radius_rad4_k12_mnn64
+[2026-03-02 17:24:36]   [Split]  train/val/test = 104664/13083/13084
+[2026-03-02 17:24:36]   [Norm]   y_mean=2.671530 y_std=1.504882
+[2026-03-02 17:24:36]   [3Body]  use_3body=True angle_rbf_bins=48
+[2026-03-02 17:24:36]   [Quantum] p=4 Lq=2 measure=z+zz diff=backprop device=default.qubit
+[2026-03-02 17:24:36]   [Stages] base=200 quantum=60 finetune=30
+[2026-03-02 17:24:36]   [Freeze] base_during_quantum=True last_block_finetune=True
+
+================================================================================
+RUN: hidden=256 layers=4 target=0
+[2026-03-02 17:24:36]   batch_size_quantum=512
+[2026-03-02 17:24:37]   Mean baseline MAE (val): 1.177110
+[2026-03-02 17:24:38] ================================================================================
+[2026-03-02 17:24:38]   MODEL SUMMARY: t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train0
+[2026-03-02 17:24:38]   Architecture   : hidden=256 layers=4 readout=add+mean
+[2026-03-02 17:24:38]   3-body         : use_3body=True angle_rbf_bins=48
+[2026-03-02 17:24:38]   Bond GINE      : layers=2 mode=interleave use_dist=True
+[2026-03-02 17:24:38]   Quantum head   : p=4 Lq=2 measure=z+zz diff=backprop
+[2026-03-02 17:24:38]   Total params   : 4,802,175
+[2026-03-02 17:24:38]   Base params    : 4,796,673
+[2026-03-02 17:24:38]   Quantum params : 377
+[2026-03-02 17:24:38]   Input node dim : 11  |  Bond edge dim: 4
+[2026-03-02 17:24:38]   Device         : cuda  |  AMP: True (bf16)
+[2026-03-02 17:24:38]   GPU mem: 0.02GB alloc / 0.09GB reserved
+[2026-03-02 17:24:38] ================================================================================
+[2026-03-02 17:24:38] ================================================================================
+[2026-03-02 17:24:38]   STAGE: BASE
+[2026-03-02 17:24:38]   Trainable params : 4,796,673
+[2026-03-02 17:24:38]   Epochs / Patience: 200 / 30
+[2026-03-02 17:24:38]   LR / WD          : 3.00e-04 / 1.00e-05
+[2026-03-02 17:24:38]   Scheduler        : cosine (warmup=10)
+[2026-03-02 17:24:38]   Loss             : l1
+[2026-03-02 17:24:38]   EMA              : True (decay=0.9999)
+[2026-03-02 17:24:38]   GPU mem: 0.04GB alloc / 0.11GB reserved
+[2026-03-02 17:24:38] ================================================================================
+[2026-03-02 17:25:08]   [base] ep=0001/200 | lr=5.70e-05 | train=1.17999 | val=6.884121 | best=6.884121@1 | q_scale=0.00000 | gnorm=39.834 | patience=0/30 | ep=29.8s ETA=1h38m50s
+[2026-03-02 17:25:34]   [base] ep=0002/200 | lr=8.40e-05 | train=0.86807 | val=6.587568 (↓0.296553) | best=6.587568@2 | q_scale=0.00000 | gnorm=32.982 | patience=0/30 | ep=26.1s ETA=1h32m17s
+[2026-03-02 17:26:00]   [base] ep=0003/200 | lr=1.11e-04 | train=0.71416 | val=6.181838 (↓0.405730) | best=6.181838@3 | q_scale=0.00000 | gnorm=19.040 | patience=0/30 | ep=25.4s ETA=1h29m00s
+[2026-03-02 17:26:26]   [base] ep=0004/200 | lr=1.38e-04 | train=0.51700 | val=5.812959 (↓0.368880) | best=5.812959@4 | q_scale=0.00000 | gnorm=5.330 | patience=0/30 | ep=26.6s ETA=1h28m10s
+[2026-03-02 17:26:52]   [base] ep=0005/200 | lr=1.65e-04 | train=0.40458 | val=5.321055 (↓0.491903) | best=5.321055@5 | q_scale=0.00000 | gnorm=6.524 | patience=0/30 | ep=25.2s ETA=1h26m34s
+[2026-03-02 17:27:17]   [base] ep=0006/200 | lr=1.92e-04 | train=0.34515 | val=4.867184 (↓0.453871) | best=4.867184@6 | q_scale=0.00000 | gnorm=9.469 | patience=0/30 | ep=25.2s ETA=1h25m20s

@@ -1,0 +1,55 @@
+nohup: ignoring input
+[2026-03-01 22:31:42] ================================================================================
+[2026-03-01 22:31:42]   QGINE v10 — STARTUP
+[2026-03-01 22:31:42] ================================================================================
+[2026-03-01 22:31:42]   exp_name   : qgine_v10_full_20260301_221011
+[2026-03-01 22:31:42]   target_idx : 0
+[2026-03-01 22:31:42]   split_seed : 0  train_seed: 0
+[2026-03-01 22:31:42]   Device     : cuda
+[2026-03-01 22:31:42]   GPU        : NVIDIA GeForce RTX 5090
+[2026-03-01 22:31:42]   VRAM       : 31.4 GB
+[2026-03-01 22:31:42]   PyTorch    : 2.8.0+cu128
+[2026-03-01 22:31:42]   PennyLane  : 0.44.0
+[2026-03-01 22:31:42]   Python     : 3.11.14
+[2026-03-01 22:31:42] ================================================================================
+[Cache] Loaded edges+triplets from: /workspace/QGINE_run/op2_cache_v9/op2_radius_rad4_k12_mnn64
+[2026-03-01 22:33:38]   [Cache]  dir=/workspace/QGINE_run/op2_cache_v9/op2_radius_rad4_k12_mnn64
+[2026-03-01 22:33:38]   [Split]  train/val/test = 104664/13083/13084
+[2026-03-01 22:33:38]   [Norm]   y_mean=2.671530 y_std=1.504882
+[2026-03-01 22:33:38]   [3Body]  use_3body=True angle_rbf_bins=48
+[2026-03-01 22:33:38]   [Quantum] p=4 Lq=2 measure=z+zz diff=adjoint device=lightning.qubit
+[2026-03-01 22:33:38]   [Stages] base=200 quantum=60 finetune=30
+[2026-03-01 22:33:38]   [Freeze] base_during_quantum=True last_block_finetune=True
+
+================================================================================
+RUN: hidden=256 layers=4 target=0
+[2026-03-01 22:33:45]   Mean baseline MAE (val): 1.177110
+[2026-03-01 22:33:45] ================================================================================
+[2026-03-01 22:33:45]   MODEL SUMMARY: t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train0
+[2026-03-01 22:33:45]   Architecture   : hidden=256 layers=4 readout=add+mean
+[2026-03-01 22:33:45]   3-body         : use_3body=True angle_rbf_bins=48
+[2026-03-01 22:33:45]   Bond GINE      : layers=2 mode=interleave use_dist=True
+[2026-03-01 22:33:45]   Quantum head   : p=4 Lq=2 measure=z+zz diff=adjoint
+[2026-03-01 22:33:45]   Total params   : 4,802,175
+[2026-03-01 22:33:45]   Base params    : 4,796,673
+[2026-03-01 22:33:45]   Quantum params : 377
+[2026-03-01 22:33:45]   Input node dim : 11  |  Bond edge dim: 4
+[2026-03-01 22:33:45]   Device         : cuda  |  AMP: True (bf16)
+[2026-03-01 22:33:45]   GPU mem: 0.02GB alloc / 0.09GB reserved
+[2026-03-01 22:33:45] ================================================================================
+[2026-03-01 22:33:45]   [base] SKIPPING base training — loading checkpoint: /workspace/QGINE_run/move_emerson/runs_qgine_v9/target0/qgine_v10_full_20260302_004949/split0/train0/best_t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train0.pt
+[2026-03-01 22:33:45]   [base] Loaded. best_val=9999.000000 | q_scale=0.0000
+[2026-03-01 22:33:45] ================================================================================
+[2026-03-01 22:33:45]   STAGE TRANSITION: base → quantum
+[2026-03-01 22:33:45] ================================================================================
+[2026-03-01 22:33:45]   freeze_base_during_quantum=True
+[2026-03-01 22:33:46] ================================================================================
+[2026-03-01 22:33:46]   STAGE: QUANTUM
+[2026-03-01 22:33:46]   Trainable params : 5,502
+[2026-03-01 22:33:46]   Epochs / Patience: 60 / 20
+[2026-03-01 22:33:46]   LR / WD          : 3.00e-04 / 1.00e-05
+[2026-03-01 22:33:46]   Scheduler        : cosine (warmup=10)
+[2026-03-01 22:33:46]   Loss             : l1
+[2026-03-01 22:33:46]   EMA              : True (decay=0.9999)
+[2026-03-01 22:33:46]   GPU mem: 0.04GB alloc / 0.11GB reserved
+[2026-03-01 22:33:46] ================================================================================

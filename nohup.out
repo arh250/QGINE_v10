@@ -1,0 +1,20 @@
+[2026-02-28 01:57:57] Starting validation sweep
+[2026-02-28 01:57:57] ===== Seed 0 BEGIN =====
+[2026-02-28 01:57:57] === Seed 0 FULL START ===
+usage: QGINE_v8: V8 classical backbone + quantum correction [-h] [--qm9_root QM9_ROOT] [--cache_root CACHE_ROOT] [--exp_name EXP_NAME] [--target_idx TARGET_IDX] [--split_seed SPLIT_SEED]
+                                                            [--train_seed TRAIN_SEED] [--hiddens HIDDENS [HIDDENS ...]] [--layers_list LAYERS_LIST [LAYERS_LIST ...]] [--dropout DROPOUT]
+                                                            [--readout {add,mean,add+mean}] [--graph_type {radius,knn}] [--radius RADIUS] [--knn_k KNN_K] [--max_num_neighbors MAX_NUM_NEIGHBORS]
+                                                            [--rbf_bins RBF_BINS] [--rbf_max RBF_MAX] [--head_type {mlp,dipole}] [--use_virtual_node] [--no_virtual_node]
+                                                            [--edge_dropout EDGE_DROPOUT] [--noisy_node_std NOISY_NODE_STD] [--no_3body] [--angle_rbf_bins ANGLE_RBF_BINS]
+                                                            [--bond_gine_layers BOND_GINE_LAYERS] [--bond_gine_mode {pre,interleave}] [--bond_use_dist] [--no_bond_use_dist]
+                                                            [--bond_rbf_bins BOND_RBF_BINS] [--bond_rbf_max BOND_RBF_MAX] [--bond_train_eps] [--q_p Q_P] [--q_Lq Q_LQ] [--q_measure {z,z+zz}]
+                                                            [--q_device_name Q_DEVICE_NAME] [--q_shots Q_SHOTS] [--q_diff_method {backprop,parameter-shift,adjoint}]
+                                                            [--q_broadcast_mode {native,expand,off}] [--q_init_std Q_INIT_STD] [--q_readout_hidden Q_READOUT_HIDDEN] [--q_scale_init Q_SCALE_INIT]
+                                                            [--init_v8_ckpt INIT_V8_CKPT] [--epochs_base EPOCHS_BASE] [--patience_base PATIENCE_BASE] [--lr_base LR_BASE]
+                                                            [--epochs_quantum EPOCHS_QUANTUM] [--patience_quantum PATIENCE_QUANTUM] [--lr_quantum LR_QUANTUM] [--freeze_base_during_quantum]
+                                                            [--epochs_finetune EPOCHS_FINETUNE] [--patience_finetune PATIENCE_FINETUNE] [--lr_finetune LR_FINETUNE] [--unfreeze_last_block_finetune]
+                                                            [--weight_decay WEIGHT_DECAY] [--scheduler {cosine,plateau}] [--warmup_epochs WARMUP_EPOCHS] [--loss {l1,huber}]
+                                                            [--huber_delta HUBER_DELTA] [--ema] [--no_ema] [--ema_decay EMA_DECAY] [--amp] [--no_amp] [--amp_dtype {fp16,bf16}] [--compile]
+                                                            [--batch_size_train BATCH_SIZE_TRAIN] [--batch_size_eval BATCH_SIZE_EVAL] [--num_workers_base NUM_WORKERS_BASE]
+                                                            [--num_workers_quantum NUM_WORKERS_QUANTUM] [--num_workers_finetune NUM_WORKERS_FINETUNE]
+QGINE_v8: V8 classical backbone + quantum correction: error: unrecognized arguments:  
