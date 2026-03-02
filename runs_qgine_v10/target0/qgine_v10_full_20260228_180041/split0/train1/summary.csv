@@ -1,0 +1,2 @@
+tag,val_mae,test_mae,q_scale,best_epoch,ckpt_path,log_path,diag_path
+t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train1,0.05948208428610085,0.059726145026225336,2.5971565264626406e-05,7,runs_qgine_v9/target0/qgine_v10_full_20260228_180041/split0/train1/best_t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train1.pt,runs_qgine_v9/target0/qgine_v10_full_20260228_180041/split0/train1/log_t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train1.csv,runs_qgine_v9/target0/qgine_v10_full_20260228_180041/split0/train1/qdiag_t0_qv8_h256_L4_p4_Lq2_z+zz_split0_train1.csv

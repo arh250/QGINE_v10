@@ -1,34 +1,60 @@
-# --- environments / installers ---
+# =========================
+# Environments / installers
+# =========================
 miniconda3/
-Miniconda3-latest-*.sh*
 .venv/
 env/
+Miniconda3-latest-*.sh*
+Miniconda3-latest-*.sh*.*
 
-# --- big data / caches / runs ---
+# =========================
+# Big datasets / caches
+# =========================
 qm9_data/
 data/
 op2_cache*/
 cache*/
+*cache*/
+
+# =========================
+# Runs / outputs
+#   - ignore most run folders
+#   - but KEEP runs_qgine_v10
+# =========================
 runs*/
 runs_*/
 runs_cached/
 runs_qgine*/
+!runs_qgine_v10/
+!runs_qgine_v10/**
 
-# --- model artifacts (big) ---
+# =========================
+# Model artifacts (often large)
+# =========================
 *.pt
 *.pth
 *.ckpt
 *.tar.gz
 *.zip
 
-# --- python junk ---
+# =========================
+# Python / notebooks
+# =========================
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
 
-# --- editor / OS ---
+# =========================
+# Editor / OS
+# =========================
 .DS_Store
 .vscode/
 
-# --- keep logs tracked ---
-# (no logs ignores here on purpose)
+# =========================
+# Logs (KEEP logs tracked)
+# =========================
+# Intentionally NOT ignoring:
+# logs/
+# logs_train_seed_*/
+# nohup.out
+# *.log / *.txt / *.csv
